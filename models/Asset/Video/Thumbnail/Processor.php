@@ -168,7 +168,10 @@ class Processor
             'processId' => $instance->getProcessId(),
         ];
         $asset->setCustomSetting('thumbnails', $customSetting);
+
+        Version::disable();
         $asset->save();
+        Version::enable();
 
         $instance->convert();
 
@@ -240,7 +243,10 @@ class Processor
                 'formats' => $formats,
             ];
             $asset->setCustomSetting('thumbnails', $customSetting);
+
+            Version::disable();
             $asset->save();
+            Version::enable();
         }
 
         TmpStore::delete($instance->getJobStoreId());
