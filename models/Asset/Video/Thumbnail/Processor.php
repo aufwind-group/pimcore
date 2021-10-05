@@ -169,9 +169,9 @@ class Processor
         ];
         $asset->setCustomSetting('thumbnails', $customSetting);
 
-        Version::disable();
+        Model\Version::disable();
         $asset->save();
-        Version::enable();
+        Model\Version::enable();
 
         $instance->convert();
 
@@ -244,9 +244,9 @@ class Processor
             ];
             $asset->setCustomSetting('thumbnails', $customSetting);
 
-            Version::disable();
+            Model\Version::disable();
             $asset->save();
-            Version::enable();
+            Model\Version::enable();
         }
 
         TmpStore::delete($instance->getJobStoreId());
