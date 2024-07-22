@@ -98,7 +98,7 @@ class PublicServicesController extends Controller
                     $thumbnailFile = $imageThumbnail->getFileSystemPath();
                 } elseif ($asset instanceof Asset\Document) {
                     $page = 1;
-                    if (preg_match("|~\-~page\-(\d+)\.|", $filename, $matchesThumbs)) {
+                    if (preg_match("|~\-~page\-(\d+)(@[0-9.]+x)?\.|", $filename, $matchesThumbs)) {
                         $page = (int)$matchesThumbs[1];
                     }
 
